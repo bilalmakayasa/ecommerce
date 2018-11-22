@@ -1,0 +1,70 @@
+## Adress List [/profile/adress]
+
+### User List Adress [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "Messages": "welcome user",
+                "adress list": [
+                    {
+                        "adress_id": 1,
+                        "province":"west Java",
+                        "city" :"Bandung",
+                        "street": "jalan Sarijadi"
+                    },
+                    {
+                        "adress_id": 2,
+                        "province":"west Java",
+                        "city" :"Bandung",
+                        "street": "jalan Sukajadi"
+                    },
+                ]
+            }
+        ]
+
+### profile edit [POST]
+this page will be used for tracking the adress of each users, it is possible
+for the user to have more than 1 adress
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|province|Y|----|
+|city|Y|----|
+|street|Y|----|
+
++ Request (application/json)
+
+        {
+            "adress_id": 1,
+            "province":"west Java",
+            "city" :"Bandung",
+            "street": "jalan Sarijadi"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /profile/adress/example
+
+    + Body
+
+            {
+                "message":"adress updated"
+            }
+
++ Response 500 (application/json)
+
+    + Headers
+
+            Location: /profile/adress/example
+
+    + Body
+
+            {
+                "error":"every field should be filled"
+            }
+
+       

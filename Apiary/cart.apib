@@ -1,0 +1,175 @@
+## Product List [/cart]
+
+### Cart List [GET]
+
++ Response 200 (application/json)
+        
+        {
+            "message" : "please check again your cart list before ",
+            "cart list" :
+            [
+                {  
+                    "id_product" : 1
+                    "name" : "ayam dada",
+                    "type" : "fillet",
+                    "price": 25000,
+                    "description" : "ayam fillet dada",
+                    "quantity" : 5
+                },
+                {  
+                    "id"   : 2 
+                    "name" : "ayam bruille",
+                    "type" : "whole chicken",
+                    "price": 45000,
+                    "description" : "ayam utuh",
+                    "quantity" : 12
+                }
+               
+            ],
+            "total_quanity" : 17,
+            "total_price" : 70000
+        }
+
+### Cart List [POST]
+this will be used whenever the customer wants to add new items in their chart
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|id_product|Y|--------|
+|quantity|Y|---------|
+|id_user|N|-----|
+|voucher|N|-----|
+
++ Request (application/json)
+
+        {
+            "id_product": 1,
+            "quantity" : 20,
+            "voucher" : "natal"
+        }
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /cart
+    
+    + Body
+            
+            {
+                "message":"item added to cart"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /cart
+    
+    + Body
+            
+            {
+                "error":"please enter the correct id_product"
+            }
+
++ Response 500 (application/json)
+    
+    + Headers
+    
+            Location: /cart
+    
+    + Body
+            
+            {
+                "error":"the quanitity should not be 0"
+            }
+
+### Cart List update [PUT]
+this will be used whenever the customer wants to add new items in their chart
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|id_product|N|--------|
+|quantity|N|---------|
+
++ Request (application/json)
+
+        {
+            "id_product": 1,
+            "quantity" : 20
+        }
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /cart
+    
+    + Body
+            
+            {
+                "message":"item added to cart"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /cart
+    
+    + Body
+            
+            {
+                "error":"please enter the correct id_product"
+            }
+
++ Response 500 (application/json)
+    
+    + Headers
+    
+            Location: /cart
+    
+    + Body
+            
+            {
+                "error":"the quanitity should not be 0"
+            }
+
+### Cart List update [DELETE]
+this will be used whenever the customer wants to delete an item in their chart
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|id_product|N|--------|
+|quantity|N|---------|
+
++ Request (application/json)
+
+        {
+            "id_product": 1
+        }
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /cart/:id_product
+    
+    + Body
+            
+            {
+                "message":"item deleted"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /cart/:id_product
+    
+    + Body
+            
+            {
+                "error":"please enter the correct id_product"
+            }
+

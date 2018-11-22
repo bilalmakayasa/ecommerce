@@ -1,0 +1,123 @@
+## Product List [/product]
+
+### Product List [GET]
+
++ Response 200 (application/json)
+        
+        {
+            [
+                {   "id"   : 1
+                    "name" : "ayam dada",
+                    "type" : "fillet",
+                    "price": 25000,
+                    "description" : "ayam fillet dada",
+                    "stock" : 150,
+                },
+                {
+                    "id"   : 2 
+                    "name" : "ayam bruille",
+                    "type" : "whole chicken",
+                    "price": 45000,
+                    "description" : "ayam utuh",
+                    "stock" : 100,
+                }
+            ]
+        }
+
+### product addition [POST]
+use this whenever the admin wants to add new item to the list
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|name|Y|--------|
+|type|Y|--------|
+|price|Y|num|
+|description|N|----|
+|stok|Y|num>0|
+
++ Request (application/json)
+
+        {
+            "name" : "ayam bruille",
+            "type" : "whole chicken",
+            "price": 45000,
+            "description" : "ayam utuh",
+            "stock" : 100
+        }
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /product
+    
+    + Body
+            
+            {
+                "message":"item added"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /product
+    
+    + Body
+            
+            {
+                "error":"stock should be more than 0"
+            }
+
+### product update [PUT]
+use this whenever the admin wants to update item in the list
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /product
+    
+    + Body
+            
+            {
+                "message":"item updated"
+            }
+
++ Response 500 (application/json)
+    
+    + Headers
+    
+            Location: /product
+    
+    + Body
+            
+            {
+                "error": error
+            }
+
+### product delete [DELETE]
+use this whenever the admin wants to delete an item in the list
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /product/:id
+    
+    + Body
+            
+            {
+                "message":"item has been deleted"
+            }
+
++ Response 500 (application/json)
+    
+    + Headers
+    
+            Location: /product/:id
+    
+    + Body
+            
+            {
+                "error": error
+            }

@@ -1,0 +1,200 @@
+## Voucher [/voucher]
+
+### voucher List [GET]
+
++ Response 200 (application/json)
+        
+        {
+            [
+                {  
+                    "name" : "lebaran",
+                    "id_product" : 1,
+                    "price_discount": "10%",
+                    "create_date_event":"",
+                    "exprired_time":"",
+                },
+                {  
+                    "name" : "natal",
+                    "id_product" : 2,
+                    "price_discount": "20%",
+                    "create_date_event":"",
+                    "exprired_time":"",
+                }
+               
+            ]
+        }
+
+### Voucher add [POST]
+this will be used whenever the admin wants to add new voucher in the list
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|name|Y|unique|
+|id_product|Y|--------|
+|price_discount|Y|-----|
+|exprired_time|Y|------|
+
++ Request (application/json)
+
+        {
+            "name" : "natal",
+            "id_product" : 2,
+            "price_discount": "20%",
+            "expired_time":""
+        }
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "message":"new voucher has been created"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"please enter the correct id_product"
+            }
+
++ Response 403 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"the voucher name has been created"
+            }
+
++ Response 404 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"invaid expired time"
+            }
+
++ Response 405 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"please fill the required field"
+            }
+
+### Voucher edit [PUT]
+this will be used whenever the admin wants to edit voucher in the voucher list
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|name|N|unique|
+|id_product|N|--------|
+|price_discount|N|-----|
+|exprired_time|N|------|
+
++ Request (application/json)
+
+        {
+            "name" : "natal",
+            "id_product" : 2,
+            "price_discount": "20%",
+            "expired_time":""
+        }
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "message":"new voucher has been created"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"please enter the correct id_product"
+            }
+
++ Response 403 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"the voucher name has been created"
+            }
+
++ Response 404 (application/json)
+    
+    + Headers
+    
+            Location: /voucher
+    
+    + Body
+            
+            {
+                "error":"invaid expired time"
+            }
+
+### Voucher delete [DELETE]
+this will be used whenever the admin wants to DELETE voucher in the voucher list,
+based on the voucher name
+
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /voucher/:name
+    
+    + Body
+            
+            {
+                "message":"voucher has been deleted"
+            }
+
++ Response 401 (application/json)
+    
+    + Headers
+    
+            Location: /voucher/:name
+    
+    + Body
+            
+            {
+                "error": error
+            }

@@ -1,0 +1,57 @@
+
+## payment [/voucher]
+
+### voucher List [GET]
+
++ Response 200 (application/json)
+        
+        {
+           "message":"please redirect to payment form field"
+        }
+
+
+### Voucher add [POST]
+this form is used by the customer to choose their payment method
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|payment_method|Y|-------|
+|bank|N|-----|
+
++ Request (application/json)
+
+        {
+           "payment_method" : "bank_transfer",
+           "bank":"bca"
+
+        }
+
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /payment
+    
+    + Body
+            
+            {
+                "status_message": "Success, Bank Transfer transaction is created",
+                "transaction_id": "9aed5972-5b6a-401e-894b-a32c91ed1a3a",
+                "order_id": "1466323342",
+                "gross_amount": "20000.00",
+                "payment_type": "bank_transfer",
+                "transaction_time": "2016-06-19 15:02:22",
+                "transaction_status": "pending"
+            }
+
++ Response 500 (application/json)
+    
+    + Headers
+    
+            Location: /payment
+    
+    + Body
+            
+            {
+                "error": "your payment method require bank, please complete the field"
+            }

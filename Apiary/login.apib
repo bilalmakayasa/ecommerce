@@ -1,0 +1,61 @@
+## LOGIN page [/login]
+
+### Login welcome page [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "Command": "Enter your credential"
+            }
+        ]
+
+### login [POST]
+you have to make sure the user enter the right credential, as written in the database
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|email|Y|email format|
+|password|Y|length > 6, alphanum|
+
++ Request (application/json)
+
+        {
+            "email":"example@gmail.com",
+            "password":"******"
+        }
++ Response 200 (application/json)
+    
+    + Headers
+    
+            Location: /login/admin
+    
+    + Body
+            
+            {
+                "message":"welcome, admin"
+            }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /login/example
+
+    + Body
+
+            {
+                "message":"welcome example"
+            }
+
++ Response 500 (application/json)
+
+    + Headers
+
+            Location: /login/example
+
+    + Body
+
+            {
+                "error":"please enter correct email and password"
+            }

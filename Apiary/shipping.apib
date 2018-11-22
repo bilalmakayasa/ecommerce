@@ -1,0 +1,137 @@
+## Shipping [/shipping]
+
+### shipping profile [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messages" : "please redirect to shipping requirement form"
+            }
+        ]
+
+### shipping form [POST]
+this page will be used for completing shipping form, this page only used by member
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|type|Y|JNE, Wahana|
+|quantity|Y|this is used for calculating the weight (in KGs)|
+|user_id|Y|this form needs user identity to calculate the cost and etd"|
+
++ Request (application/json)
+
+        {
+            "type":"JNE",
+            "quantity": 17,
+            "user_id":1
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /shipping
+
+    + Body
+
+            {
+                "message":"your shipment request has been saved"
+            }
+
++ Response 500 (application/json)
+
+    + Headers
+
+            Location: /shipping
+
+    + Body
+
+            {
+                "error":"invalid destination"
+            }
+
++ Response 401 (application/json)
+
+    + Headers
+
+            Location: /shipping
+
+    + Body
+
+            {
+                "error":"please complete all the required form"
+            }
+
+## Shipping [/shipping/guest]
+
+### shipping profile [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "messages" : "please redirect to shipping requirement form or signup to get yoru account"
+            }
+        ]
+
+### shipping form [POST]
+this page will be used for completing shipping form
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|type|Y|JNE, Wahana|
+|quantity|Y|this is used for calculating the weight (in KGs)|
+|name|Y|string|
+|province|Y|string|
+|city|Y|string|
+|adress|Y|-----|
+|phone_number|y|integer|
+
++ Request (application/json)
+
+        {
+            "type":"JNE",
+            "quantity": 17,
+            "name":"bilal"
+            "province": "Papua",
+            "city":"jayapura",
+            "adress":"jalan sarijadi",
+            "phonenumber": 69696996969
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /shipping/guest
+
+    + Body
+
+            {
+                "message":"your shipment request has been saved"
+            }
+
++ Response 500 (application/json)
+
+    + Headers
+
+            Location: /shipping/guest
+
+    + Body
+
+            {
+                "error":"invalid destination"
+            }
+
++ Response 401 (application/json)
+
+    + Headers
+
+            Location: /shipping/guest
+
+    + Body
+
+            {
+                "error":"please complete all the required form"
+            }

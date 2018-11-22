@@ -1,0 +1,78 @@
+## Profile User Page [/profile]
+
+### Profile [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "Messages": "welcome user",
+                "data": [
+                    {
+                        "name": "example"
+                    },
+                    {
+                        "address_id":1
+                    },
+                    {
+                        "phone_number": 08114780150
+                    }
+                ]
+            }
+        ]
+
+### profile edit [POST]
+this page will be used for tracking the identity of the customer,
+on the next phase, we will use this data for shipping purpose
+
+|Field|mandatory|description|
+|-----|---------|-----------|
+|name|Y|string, alphabet|
+|phone_number|Y|num|
+|adress_id|N|---|
+
++ Request (application/json)
+
+        {
+            "name": "example",
+            "address_id": 1,
+             "phone_number": 08114780150
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /profile/example
+
+    + Body
+
+            {
+                "message":"profile updated"
+            }
+
++ Response 500 (application/json)
+
+    + Headers
+
+            Location: /profile/example
+
+    + Body
+
+            {
+                "error":"name should be alphabetical (A-Z)"
+            }
+
++ Response 401 (application/json)
+
+    + Headers
+
+            Location: /profile/example
+
+    + Body
+
+            {
+                "error":"phone number should be numerical (0-9)"
+            }
+            
+            
