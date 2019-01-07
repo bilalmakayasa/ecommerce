@@ -8,7 +8,8 @@ class PaymentSchema extends Schema {
     this.create('payments', (table) => {
       table.increments()
       table.integer('total_price').notNullable()
-      table.integer('address_id').notNullable()
+      table.string('status')
+      table.string('cart_id')
       table.timestamps()
     })
   }

@@ -8,12 +8,14 @@ class VoucherSchema extends Schema {
     this.create('vouchers', (table) => {
       table.increments()
       table.string('name').notNullable()
-      table.integer('price_discount').notNullable()
+      table.float('price_discount')
       table.integer('id_product')
+      table.string('code')
       table.date('expired_time').notNullable()
-      table.date('publishedAt').notNullable()
-      table.integer('admin_id').notNullable()
+      table.date('publishedAt')
+      table.integer('admin_id')
       table.timestamps()
+
     })
   }
 

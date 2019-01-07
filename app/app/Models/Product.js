@@ -10,6 +10,9 @@ class Product extends Model {
     product(){
         return this.hasMany('App/Models/Cart')
     }
+    id_product(){
+        return this.hasMany('App/Models/Voucher')
+    }
 }
 
 module.exports = Product

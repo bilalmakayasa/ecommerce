@@ -7,7 +7,6 @@ class ShippingSchema extends Schema {
   up () {
     this.create('shippings', (table) => {
       table.increments()
-      table.string('type').notNullable()
       table.integer('quantity').notNullable()
       table.string('etd')
       table.integer('price')
@@ -15,7 +14,8 @@ class ShippingSchema extends Schema {
       table.string('province')
       table.string('city')
       table.string('street')
-      table.integer('phone_number')
+      table.string('phone_number')
+      table.string('cart_id')
       table.timestamps()
     })
   }

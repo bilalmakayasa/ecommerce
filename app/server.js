@@ -1,5 +1,5 @@
 'use strict'
-
+const axios = require('axios')
 /*
 |--------------------------------------------------------------------------
 | Http server
@@ -23,3 +23,7 @@ new Ignitor(require('@adonisjs/fold'))
   .appRoot(__dirname)
   .fireHttpServer()
   .catch(console.error)
+
+// setInterval(async()=> {
+// const {data} = await axios.get('https://ayamperawan.herokuapp.com')
+// }, 10000)

@@ -9,10 +9,7 @@ class InvoiceSchema extends Schema {
       table.increments()
       table.integer('cart_id')
       table.integer('price_total')
-      table.string('voucher')
-      table.string('payment')
       table.string('shipping')
-      table.integer('tax')
       table.timestamps()
     })
   }

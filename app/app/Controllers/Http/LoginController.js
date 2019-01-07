@@ -7,8 +7,7 @@
 const User = use('App/Models/User')
 const Hash = use('Hash')
 const View = use('View')
-const fs = require('fs')
-const private_key = fs.readFileSync('/Users/apple/documents/bootcamp/ecommerce/app/app/middleware/helper/private_key')
+
 /**
  * Resourceful controller for interacting with logins
  */
@@ -54,14 +53,12 @@ class LoginController {
       const user = await User.query().where('email', email).firstOrFail()
       const isSame = await Hash.verify(password, user.password)
       const tokenJwt =  await auth.generate(user)
-      console.log(tokenJwt);
-      
       console.log(user.verifiedAt);
       if(!user.verifiedAt){
         return response.json({error:"please verify your account, check your e-mail"})
       }else{
         if (isSame) {
-          response.status(200).json({ "message": "welcome to mobile legend", token:tokenJwt.token})
+          response.status(200).json({ "message": "welcome to ayamperawan", token:tokenJwt.token, user:user})
           return tokenJwt
         } else {
           response.status(300).json({ "error": "invalid password" })
@@ -130,6 +127,12 @@ class LoginController {
    * @param {Response} ctx.response
    */
   async destroy({ params, request, response }) {
+    try {
+      const user = await User.query().where('id',params.id).firstOrFail()
+      await user.delete()
+    } catch (e) {
+      response.json({error:e})
+    }
   }
 }
 

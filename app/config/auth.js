@@ -12,9 +12,9 @@ module.exports = {
   | Authentication is a combination of serializer and scheme with extra
   | config to define on how to authenticate a user.
   |
-  | Available Schemes - basic, session, jwt, api
+  | Available Schemes - basic, session, jwt, api                
   | Available Serializers - lucid, database
-  |
+  |`
   */
   authenticator: 'jwt',
 

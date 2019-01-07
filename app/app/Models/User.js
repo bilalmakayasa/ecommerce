@@ -26,6 +26,9 @@ class User extends Model {
   user(){
     return this.hasOne('App/Models/UserProfile')
   }
+  user_id(){
+    return this.hasMany('App/Model/cart')
+  }
   
 
   /**

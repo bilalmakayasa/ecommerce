@@ -14,9 +14,7 @@ class ProductSchema extends Schema {
       table.integer('stock')
       table.string('photo')
       table.date('publishedAt')
-      table.integer('admin_id').unique()
-      
-      
+      table.integer('admin_id')
       table.timestamps()
     })
   }

@@ -11,7 +11,10 @@ class UserProfileSchema extends Schema {
       table.string('email').notNullable()
       table.string('phone_number').notNullable().unique()
       table.integer('user_id').unique()
-      
+      table.string('province')
+      table.string('city')
+      table.string('street')
+      table.date('date_of_birth')
       table.timestamps()
     })
   }

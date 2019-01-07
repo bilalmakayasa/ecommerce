@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://adonisjs.com/docs/4.0/lucid -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Lucid Models </title>
+<meta name="description" content="">
+<meta name="author" content="AdonisJs">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://adonisjs.com/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://adonisjs.com/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://adonisjs.com/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://adonisjs.com/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://adonisjs.com/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://adonisjs.com/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://adonisjs.com/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://adonisjs.com/images/favicons/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="https://adonisjs.com/images/favicons/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="https://adonisjs.com/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://adonisjs.com/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://adonisjs.com/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="https://adonisjs.com/images/favicons/favicon-128.png" sizes="128x128">
+<meta name="application-name" content=" ">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="images/favions/mstile-144x144.png">
+<meta name="msapplication-square70x70logo" content="images/favions/mstile-70x70.png">
+<meta name="msapplication-square150x150logo" content="images/favions/mstile-150x150.png">
+<meta name="msapplication-wide310x150logo" content="images/favions/mstile-310x150.png">
+<meta name="msapplication-square310x310logo" content="images/favions/mstile-310x310.png">
+<link rel="stylesheet" href="./Lucid Models_files/dpd2zbd.css">
+<link rel="stylesheet" href="./Lucid Models_files/docsearch.min.css">
+<script async="" src="./Lucid Models_files/analytics.js"></script><script type="text/javascript" src="./Lucid Models_files/docsearch.min.js"></script>
+<link rel="stylesheet" href="./Lucid Models_files/adonis.css">
+<script id="_carbonads_projs" type="text/javascript" src="./Lucid Models_files/CKYIL23I.json"></script></head>
+<body>
+<section class="app">
+<header>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+<div class="container">
+<div class="navbar-brand">
+<a class="navbar-item" href="https://adonisjs.com/">
+<img src="./Lucid Models_files/header-logo.svg" width="120" height="33">
+</a>
+<button class="button navbar-burger">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="navbar-menu">
+<div class="navbar-end">
+<div class="field for-search">
+<div class="control">
+<span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input class="input is-primary ds-input" type="search" id="search" placeholder="Search docs" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: lato, sans-serif; font-size: 14.4px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span></span>
+</div>
+</div>
+<a id="show-quick-i-modal" href="https://adonisjs.com/docs/4.0/lucid#" class="navbar-item "> Quick Start </a>
+<a href="https://adonisjs.com/docs" class="navbar-item is-active"> Guides </a>
+<a href="https://adonisjs.com/recipes" class="navbar-item "> Recipes </a>
+<a href="https://adonisjs.com/sponsors" class="navbar-item "> Sponsors </a>
+<div class="navbar-item has-dropdown">
+<a class="navbar-link"> Community </a>
+<div class="navbar-dropdown">
+<a href="https://adonisjs.com/packages" class="navbar-item"> Official packages </a>
+<a href="https://adonisjs.com/screencasts" class="navbar-item"> Screencasts </a>
+<a href="https://twitter.com/adonisframework" class="navbar-item" target="_blank"> Twitter </a>
+<a href="https://github.com/adonisjs" class="navbar-item" target="_blank"> Github </a>
+<a href="https://forum.adonisjs.com/" class="navbar-item" target="_blank"> Forum </a>
+<a href="https://adonisjs.svbtle.com/" class="navbar-item" target="_blank"> Blog </a>
+<a href="https://discord.gg/vDcEjq6?" class="navbar-item" target="_blank"> Discord </a>
+<a href="https://www.patreon.com/adonisframework" class="navbar-item" target="_blank"> Donate </a>
+</div>
+</div>
+</div>
+<div class="is-hidden-touch">
+<a id="notifications-handle">
+<img src="./Lucid Models_files/bell.svg">
+<span id="HW_badge_cont" class="HW_visible"><span id="HW_badge" data-count-unseen="2" class="HW_visible HW_animated HW_undefined">2</span></span></a>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div id="quick-i-modal" class="modal">
+<div class="modal-background"></div>
+<div class="modal-content">
+<div class="box">
+<ul class="timeline">
+<li class="timeline-header">
+<span class="tag is-primary"> Install </span>
+</li>
+<li class="timeline-item">
+<div class="timeline-marker"></div>
+<div class="timeline-content wysiwyg"><pre class="highlight line-numbers is-small language-javascript"><code class=" language-javascript">npm i <span class="token operator">-</span>g @adonisjs<span class="token operator">/</span>cli
+adonis <span class="token keyword">new</span> <span class="token class-name">yardstick</span>
+cd yardstick
+adonis serve <span class="token operator">--</span>dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
+</li>
+<li class="timeline-header">
+<span class="tag is-primary"> Commands </span>
+</li>
+<li class="timeline-item">
+<div class="timeline-marker"></div>
+<div class="timeline-content wysiwyg"> <p> Get list of available commands you can run to create controllers, models and so on </p>
+<pre class="highlight line-numbers is-small language-javascript"><code class=" language-javascript">adonis <span class="token operator">--</span>help<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+</li>
+<li class="timeline-header">
+<span class="tag is-primary"> Help </span>
+</li>
+<li class="timeline-item">
+<div class="timeline-marker"></div>
+<div class="timeline-content "> <ul>
+<li>
+Report bugs on <a href="https://github.com/adonisjs" target="_blank"> github </a>
+</li>
+<li>
+Discuss concerns and share ideas on <a href="https://forum.adonisjs.com/" target="_blank"> forum </a>
+</li>
+<li>
+Stay updated on <a href="https://twitter.com/adonisframework" target="_blank"> twitter </a>
+</li>
+</ul></div>
+</li>
+</ul>
+</div>
+</div>
+<button class="modal-close is-large" aria-label="close"></button>
+</div>
+<div class="docs-container">
+<div id="sponsor">
+<script async="" type="text/javascript" src="./Lucid Models_files/carbon.js" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QWCVAI42QNCT7LYKQMCE7DE2JMCE7DPZ3JCWBD653WC67I65QKC6BIVKJ7CEBIKK3EHJNCLSIZ?segment=placement:adonisjscom;" class="carbon-img" target="_blank" rel="noopener"><img src="./Lucid Models_files/1525189909-61450.png" alt="" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QWCVAI42QNCT7LYKQMCE7DE2JMCE7DPZ3JCWBD653WC67I65QKC6BIVKJ7CEBIKK3EHJNCLSIZ?segment=placement:adonisjscom;" class="carbon-text" target="_blank" rel="noopener">Adobe Creative Cloud for Teams starting at $29.99 per month.</a></span><a href="http://carbonads.net/?utm_source=adonisjscom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener">ads via Carbon</a></span></div>
+</div>
+<div class="container">
+<div class="columns">
+<div class="column sidebar is-one-quarter is-hidden-mobile">
+<div class="select version-switch">
+<select id="version-switch">
+<option value="4.1">Version 4.1</option>
+<option value="4.0" selected="">Version 4.0</option>
+<option value="3.2">Version 3.2 ( legacy )</option>
+</select>
+</div>
+<aside class="menu">
+<p class="menu-label">
+Introduction
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/about" class="">About AdonisJs</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/upgrade-guide" class="">Upgrading from 3.x</a></li>
+</ul>
+<p class="menu-label">
+Internals
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/ioc-container" class="">Ioc container</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/service-providers" class="">Service providers</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/ignitor" class="">Ignitor</a></li>
+</ul>
+<p class="menu-label">
+Getting Started
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/installation" class="">Installation</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/folder-structure" class="">Folder structure</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/configuration-and-env" class="">Configuration and Env</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/number-guessing-game" class="">Number guessing game</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/database-basics" class="">Database</a></li>
+</ul>
+<p class="menu-label">
+Http Lifecycle
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/http-context" class="">Introduction</a></li>
+ <li><a href="https://adonisjs.com/docs/4.0/routing" class="">Routing</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/request" class="">Request</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/response" class="">Response</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/views" class="">Views</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/file-uploads" class="">File uploads</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/middleware" class="">Middleware</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/sessions" class="">Sessions</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/authentication" class="">Authentication</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/social-auth" class="">Social authentication</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/exceptions" class="">Handling Exceptions</a></li>
+</ul>
+<p class="menu-label">
+Database
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/database" class="">Introduction</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/query-builder" class="">Query builder</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/migrations" class="">Migrations</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/seeds-and-factories" class="">Seeds &amp; Factories</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/redis" class="">Redis</a></li>
+</ul>
+<p class="menu-label">
+Lucid
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/lucid" class="is-active">Lucid Models</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/database-hooks" class="">Hooks</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/database-getters-setters" class="">Getters &amp; Setters</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/relationships" class="">Relationships</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/serializers" class="">Serializers</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/traits" class="">Traits</a></li>
+</ul>
+<p class="menu-label">
+Cookbooks
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/validator" class="">Validator</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/encryption-and-hashing" class="">Encryption and Hashing</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/ace" class="">Ace commands</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/mail" class="">Mail</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/events" class="">Events</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/file-system" class="">File System</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/logger" class="">Logger</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/internationalization" class="">Internationalization</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/helpers" class="">Helpers</a></li>
+</ul>
+<p class="menu-label">
+Web Security
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/security-introduction" class="">Introduction</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/csrf" class="">CSRF protection</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/cors" class="">CORS</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/shield" class="">Shield middleware</a></li>
+</ul>
+<p class="menu-label">
+Testing
+</p>
+<ul class="menu-list">
+<li><a href="https://adonisjs.com/docs/4.0/testing" class="">Introduction</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/api-tests" class="">REST API tests</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/browser-tests" class="">Browser tests</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/testing-fakes" class="">Testing fakes and Helpers</a></li>
+</ul>
+</aside>
+</div>
+<div class="column sidebar is-one-quarter is-hidden-tablet">
+<div class="select is-block">
+<select id="docs-switch">
+<option value=""> Select A Topic </option>
+<option value="about">
+About AdonisJs
+</option>
+<option value="upgrade-guide">
+Upgrading from 3.x
+</option>
+<option value="ioc-container">
+Ioc container
+</option>
+<option value="service-providers">
+Service providers
+</option>
+<option value="ignitor">
+Ignitor
+</option>
+<option value="installation">
+Installation
+</option>
+<option value="folder-structure">
+Folder structure
+</option>
+<option value="configuration-and-env">
+Configuration and Env
+</option>
+<option value="number-guessing-game">
+Number guessing game
+</option>
+<option value="database-basics">
+Database
+</option>
+<option value="http-context">
+Introduction
+</option>
+<option value="routing">
+Routing
+</option>
+<option value="request">
+Request
+</option>
+<option value="response">
+Response
+</option>
+<option value="views">
+Views
+</option>
+<option value="file-uploads">
+File uploads
+</option>
+<option value="middleware">
+Middleware
+</option>
+<option value="sessions">
+Sessions
+</option>
+<option value="authentication">
+Authentication
+</option>
+<option value="social-auth">
+Social authentication
+</option>
+<option value="exceptions">
+Handling Exceptions
+</option>
+<option value="database">
+Introduction
+</option>
+<option value="query-builder">
+Query builder
+</option>
+<option value="migrations">
+Migrations
+</option>
+<option value="seeds-and-factories">
+Seeds &amp; Factories
+</option>
+<option value="redis">
+Redis
+</option>
+<option value="lucid" selected="">
+Lucid Models
+</option>
+<option value="database-hooks">
+Hooks
+</option>
+<option value="database-getters-setters">
+Getters &amp; Setters
+</option>
+<option value="relationships">
+Relationships
+</option>
+<option value="serializers">
+Serializers
+</option>
+<option value="traits">
+Traits
+</option>
+<option value="validator">
+Validator
+</option>
+<option value="encryption-and-hashing">
+Encryption and Hashing
+</option>
+<option value="ace">
+Ace commands
+</option>
+<option value="mail">
+Mail
+</option>
+<option value="events">
+Events
+</option>
+<option value="file-system">
+File System
+</option>
+<option value="logger">
+Logger
+</option>
+<option value="internationalization">
+Internationalization
+</option>
+<option value="helpers">
+Helpers
+</option>
+<option value="security-introduction">
+Introduction
+</option>
+<option value="csrf">
+CSRF protection
+</option>
+<option value="cors">
+CORS
+</option>
+<option value="shield">
+Shield middleware
+</option>
+<option value="testing">
+Introduction
+</option>
+<option value="api-tests">
+REST API tests
+</option>
+<option value="browser-tests">
+Browser tests
+</option>
+<option value="testing-fakes">
+Testing fakes and Helpers
+</option>
+</select>
+</div>
+</div>
+<div class="column content-area wysiwyg">
+<h1> Lucid Models </h1>
+<div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_introduction">Introduction</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_basic_example">Basic Example</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_convention_over_configuration">Convention over configuration</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_hiding_fields">Hiding Fields</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_dates">Dates</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_query_builder">Query builder</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_static_methods">Static methods</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_aggregate_helpers">Aggregate helpers</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_query_scopes">Query scopes</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_pagination">Pagination</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_inserts_updates">Inserts &amp; Updates</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_deletes">Deletes</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_transactions">Transactions</a></li>
+<li><a href="https://adonisjs.com/docs/4.0/lucid#_boot_cycle">Boot cycle</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lucid is an implementation of <a href="https://en.wikipedia.org/wiki/Active_record_pattern" target="_blank" rel="noopener">Active Record</a> pattern in Javascript. If you are coming from the <strong>Laravel</strong> or the <strong>Rails</strong> world, then you may be quite familiar with it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_introduction"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The reason behind using Models over writing plain database queries is the ease of use and the powerful API to drive the data flow. Lucid models under the hood takes care of</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fetching, persisting model instance transparently.</p>
+</li>
+<li>
+<p>Expressive API to manage relationships.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-javascript"><code class=" language-javascript" data-lang="javascript"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+
+  <span class="token function">profile</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasOne</span><span class="token punctuation">(</span><span class="token string">'App/Models/Profile'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">posts</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span><span class="token string">'App/Models/Post'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Define life-cycle hooks to keep your code DRY.</p>
+</li>
+<li>
+<p>Getters/Setters to mutate data on the fly.</p>
+</li>
+<li>
+<p>Serialize data using <strong>serializers</strong>, <strong>computed properties</strong> etc.</p>
+</li>
+<li>
+<p>Manage date formats.</p>
+</li>
+<li>
+<p>and much more.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Lucid models are not tied to your database schema and instead manages everything on their own.<br>
+<strong>For example</strong>: There is no need to define associations in SQL when using lucid relationships.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph">
+<p>The lucid models are stored as ES6 classes inside <code>app/Models</code> directory, where each model represents a database table. For example</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Model</th>
+<th class="tableblock halign-left valign-top">Database table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Post</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">posts</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basic_example"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_basic_example"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_basic_example">Basic Example</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s see how to create and make use of a Model to read/write to the database. You can make use of the <code>adonis</code> command to generate a model.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_model"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_creating_model"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_creating_model">Creating model</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-bash"><code class=" language-bash" data-lang="bash">adonis make:model User
+
+<span class="token comment"># or with migration</span>
+adonis make:model User --migration<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Output</div>
+<div class="content">
+<pre class="highlight line-numbers language-bash"><code class=" language-bash" data-lang="bash">✔ create  app/Models/User.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token string">'use strict'</span>
+
+<span class="token keyword">const</span> Model <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'Model'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> User<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fetching_users"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_fetching_users"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_fetching_users">Fetching users</a></h3>
+<div class="paragraph">
+<p>Now inside the routes file, we use the <strong>User</strong> model to fetch all users.</p>
+</div>
+<div class="listingblock">
+<div class="title">start/routes.js</div>
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> Route <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'Route'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+Route<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_user"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_creating_user"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_creating_user">Creating user</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+user<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">'virk'</span>
+user<span class="token punctuation">.</span>password <span class="token operator">=</span> <span class="token string">'some-password'</span>
+
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_convention_over_configuration"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_convention_over_configuration"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_convention_over_configuration">Convention over configuration</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lucid models do a lot based on certain conventions, but of course, you are free to override the defaults with your settings.</p>
+</div>
+<div class="sect3">
+<h4 id="_table"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_table"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_table">table</a></h4>
+<div class="paragraph">
+<p>The table name is always the <strong>lowercase</strong> and <strong>plural</strong> form of the model name. However, you can override it defining a getter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">table</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'my_users'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_connection"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_connection"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_connection">connection</a></h4>
+<div class="paragraph">
+<p>By default, models make use of the default connection defined inside <code>config/database.js</code> file. However, you can set a different database connection for each model.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">connection</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'mysql'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_primarykey"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_primarykey"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_primarykey">primaryKey</a></h4>
+<div class="paragraph">
+<p>The primary key is set as <code>id</code> by default. However, you can mark a different field as the primary key. Also, make sure that the value of this field should always be unique.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">primaryKey</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'uid'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_createdatcolumn"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_createdatcolumn"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_createdatcolumn">createdAtColumn</a></h4>
+<div class="paragraph">
+<p>The field name to be used for setting the created at time stamp. You can return <code>null</code> to disable it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">createdAtColumn</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'created_at'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_updatedatcolumn"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_updatedatcolumn"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_updatedatcolumn">updatedAtColumn</a></h4>
+<div class="paragraph">
+<p>The field name to be used for setting the updated at time stamp. You can return <code>null</code> to disable it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">updatedAtColumn</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'updated_at'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_incrementing"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_incrementing"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_incrementing">incrementing</a></h4>
+<div class="paragraph">
+<p>Lucid assumes that each table associated with a Model has an auto incrementing primary key. You can disable this flag by return <code>false</code> from the incrementing getter.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When you set <code>incrementing = false</code>, you have to make sure to set the <code>primaryKeyValue</code> manually.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">incrementing</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_primarykeyvalue"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_primarykeyvalue"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_primarykeyvalue">primaryKeyValue</a></h4>
+<div class="paragraph">
+<p>The value of the primary key. You only update this key when <code>incrementing</code> is set to false.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>primaryKeyValue<span class="token punctuation">)</span>
+
+<span class="token comment">// when incrementing is false</span>
+user<span class="token punctuation">.</span>primaryKeyValue <span class="token operator">=</span> uuid<span class="token punctuation">.</span><span class="token function">v4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hiding_fields"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_hiding_fields"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_hiding_fields">Hiding Fields</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quite often you will find yourself omitting fields from the database results. For example: Hiding the user’s password from the JSON output. Doing this manually can be tedious in many ways.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You will have manually loop over the rows and delete the key/value pair.</p>
+</li>
+<li>
+<p>When you fetch relationships, you will have to loop through all the parent records and then their child records to delete the key/value pair.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>AdonisJs makes it simpler by defining the visible or hidden (one at a time) on your model.</p>
+</div>
+<div class="sect3">
+<h4 id="_hidden"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_hidden"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_hidden">hidden</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">hidden</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_visible"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_visible"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_visible">visible</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">Post</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">visible</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">,</span> <span class="token string">'body'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dates"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_dates"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_dates">Dates</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dates are the hardest part of building data driver applications. We want to store them differently and show them differently, which usually requires much manual work.</p>
+</div>
+<div class="paragraph">
+<p>Lucid handles date gracefully so that you have minimal work to do.</p>
+</div>
+<div class="sect2">
+<h3 id="_defining_date_fields"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_defining_date_fields"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_defining_date_fields">Defining date fields</a></h3>
+<div class="paragraph">
+<p>The first step is to tell Lucid, which fields are supposed to be treated as dates. By default, the timestamps <code>created_at</code> and <code>updated_at</code> are marked as dates.</p>
+</div>
+<div class="paragraph">
+<p>However, you can define your own too.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">get</span> <span class="token function">dates</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span>dates<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'dob'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So here we pull the fields which are marked as dates by default and push a new date field to it and finally return it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_formatting_date_fields"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_formatting_date_fields"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_formatting_date_fields">Formatting date fields</a></h3>
+<div class="paragraph">
+<p>Lucid formats all dates as <code>YYYY-MM-DD HH:mm:ss</code> by default, which is a valid format for all database engines. Also, it gives you a way to conditionally format certain or all date fields.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>formatDates</code> method is called before saving the model instance to the database. So make sure the return value is always a valid format for the database engine you are using.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">formatDates</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>field <span class="token operator">===</span> <span class="token string">'dob'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'YYYY-MM-DD'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">formatDates</span><span class="token punctuation">(</span>field<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>value</code> is the actual date given when setting the field.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_casting_dates"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_casting_dates"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_casting_dates">Casting dates</a></h3>
+<div class="paragraph">
+<p>Now we have saved the dates to the database; we may want to format them differently when displaying it to the user. It can be done quite easily using the <code>castDates</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">castDates</span> <span class="token punctuation">(</span>field<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>field <span class="token operator">===</span> <span class="token string">'dob'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token punctuation">.</span><span class="token function">fromNow</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> old`</span></span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">formatDates</span><span class="token punctuation">(</span>field<span class="token punctuation">,</span> value<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>value</code> is an instance of <a href="https://momentjs.com/" target="_blank" rel="noopener">moment.js</a>, which means you can call any moment methods to format the date. Also, the <code>castDates</code> method is called when the model instance is <strong>deserialized</strong>, which happens after calling <code>toJSON</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// converting to JSON array</span>
+<span class="token keyword">const</span> usersJSON <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">toJSON</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_builder"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_query_builder"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_query_builder">Query builder</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lucid models make use of <a href="https://adonisjs.com/docs/4.0/query-builder">database query builder</a> to run database queries. You can obtain an instance of query builder by calling <code>query</code> method on a model.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> adults <span class="token operator">=</span> <span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token string">'&gt;'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All of the query builder methods are fully supported.</p>
+</li>
+<li>
+<p>With Lucid models, you are supposed to call <code>fetch</code> method to execute the query. It is required to get results back within an instance of <code>serializer</code> ( learn more about <a href="https://adonisjs.com/docs/4.0/serializers">serializers</a> ).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_static_methods"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_static_methods"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_static_methods">Static methods</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lucid models come with a bunch of static methods to do common operations without using the query builder interface.</p>
+</div>
+<div class="paragraph">
+<p>Also, there is no need to call <code>fetch</code> when using one of the following static methods.</p>
+</div>
+<div class="sect3">
+<h4 id="_find"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_find"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_find">find</a></h4>
+<div class="paragraph">
+<p>Find a record using for the primary key. Always returns one record.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_findorfail"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_findorfail"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_findorfail">findOrFail</a></h4>
+<div class="paragraph">
+<p>Same as the <code>find</code> method but instead throws <code>ModelNotFoundException</code> when unable to find a record.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findOrFail</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_findby_findbyorfail"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_findby_findbyorfail"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_findby_findbyorfail">findBy / findByOrFail</a></h4>
+<div class="paragraph">
+<p>Find a record using a key/value pair. Returns the first matching record.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findBy</span><span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'foo@bar.com'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// or</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findByOrFail</span><span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'foo@bar.com'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_first_firstorfail"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_first_firstorfail"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_first_firstorfail">first / firstOrFail</a></h4>
+<div class="paragraph">
+<p>Find the first row from the database.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// or</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">firstOrFail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_findorcreate_whereattributes_values"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_findorcreate_whereattributes_values"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_findorcreate_whereattributes_values">findOrCreate (whereAttributes, values)</a></h4>
+<div class="paragraph">
+<p>Find a record, if not found a new record will be created and returned back on the fly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">findOrCreate</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span> username<span class="token punctuation">:</span> <span class="token string">'virk'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> username<span class="token punctuation">:</span> <span class="token string">'virk'</span><span class="token punctuation">,</span> email<span class="token punctuation">:</span> <span class="token string">'virk@adonisjs.com'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pick_rows_1"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_pick_rows_1"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_pick_rows_1">pick(rows = 1)</a></h4>
+<div class="paragraph">
+<p>Pick <code>x</code> number of rows from the database table. By default it only selects <code>1</code> row.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">pick</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pickinverse_rows_1"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_pickinverse_rows_1"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_pickinverse_rows_1">pickInverse(rows = 1)</a></h4>
+<div class="paragraph">
+<p>Pick <code>x</code> number of rows from the database table from last. By default it only selects <code>1</code> row.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">pickInverse</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ids"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_ids"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_ids">ids</a></h4>
+<div class="paragraph">
+<p>Returns an array of primary keys. If the primary key is defined as <code>uid</code>, then it is an array of <code>uid’s</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> userIds <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">ids</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pair_lhs_rhs"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_pair_lhs_rhs"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_pair_lhs_rhs">pair(lhs, rhs)</a></h4>
+<div class="paragraph">
+<p>Returns an object of key/value pair. The <code>lhs</code> field is the object key, and <code>rhs</code> is the value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">pair</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'country'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// returns { 1: 'ind', 2: 'uk' }</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_all"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_all"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_all">all</a></h4>
+<div class="paragraph">
+<p>Select all rows</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_truncate"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_truncate"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_truncate">truncate</a></h4>
+<div class="paragraph">
+<p>Delete all rows (truncate table)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">truncate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aggregate_helpers"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_aggregate_helpers"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_aggregate_helpers">Aggregate helpers</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://adonisjs.com/docs/4.0/query-builder#_aggregate_helpers">Query Builder aggregate helpers</a> provide shortcut access to common aggregate queries. Static model methods can be used when you wish to aggregate the entire table.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These methods end the query builder chaining and returns a value. There is no need to call <code><a href="https://adonisjs.com/docs/4.0/lucid#_query_builder">fetch()</a></code>.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sect3">
+<h4 id="_getcount_columnname"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_getcount_columnname"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_getcount_columnname">getCount(columnName = '*')</a></h4>
+<div class="paragraph">
+<p>Return a count of records in a given result set.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// returns number</span>
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also you can add query constraints before calling <code>getCount</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'is_active'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just like <code>getCount</code> you can call all of the aggregate methods available on the <a href="https://adonisjs.com/docs/4.0/query-builder#_aggregate_helpers">query builder</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_scopes"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_query_scopes"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_query_scopes">Query scopes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Query scopes are convenient methods to extract query constraints to useable and powerful methods. For example, we want to fetch all those users, who have a profile</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> Model <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'Model'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">scopeHasProfile</span> <span class="token punctuation">(</span>query<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> query<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'profile'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">profile</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasOne</span><span class="token punctuation">(</span><span class="token string">'App/Models/Profile'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So, now you can use it as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hasProfile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The idea of query scopes is to make your code more readable as if you are reading plain text.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The scopes are always defined with a keyword called <code>scope</code>, followed by the method name.</p>
+</li>
+<li>
+<p>When using the scope, you can call the method by dropping the <code>scope</code> keyword and calling the method in <strong>camelCase</strong> form.</p>
+</li>
+<li>
+<p>You can call all standard query builder methods inside a query scope.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pagination"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_pagination"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_pagination">Pagination</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lucid also supports the <code>paginate</code> method from the query builder.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> page <span class="token operator">=</span> <span class="token number">1</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">paginate</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span>
+
+<span class="token keyword">return</span> view<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token string">'users'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> users<span class="token punctuation">:</span> users<span class="token punctuation">.</span><span class="token function">toJSON</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The return value of <code>paginate</code> is not an array of users. Instead, it is an object with metadata and <code>data</code> property that has a list of users.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token punctuation">{</span>
+  total<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  perPage<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  lastPage<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  page<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_inserts_updates"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_inserts_updates"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_inserts_updates">Inserts &amp; Updates</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With models instead of inserting raw values to the database, you persist the model instance which in turn makes the insert query for you. For example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+user<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">'virk'</span>
+user<span class="token punctuation">.</span>email <span class="token operator">=</span> <span class="token string">'foo@bar.com'</span>
+
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>save</code> method persists the instance to the database. Also, it smartly figures out whether to create a new row or update the existing row. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+user<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">'virk'</span>
+user<span class="token punctuation">.</span>email <span class="token operator">=</span> <span class="token string">'foo@bar.com'</span>
+
+<span class="token comment">// Insert</span>
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+user<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">22</span>
+
+<span class="token comment">// Update</span>
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>update</code> query only takes place if something has been changed. Calling <code>save</code> multiple times, without updating the model attributes does not perform any queries.</p>
+</div>
+<div class="paragraph">
+<p>Rather than setting attributes manually, the <code>fill</code> or <code>merge</code> methods may be used.</p>
+</div>
+<div class="paragraph">
+<p>The <code>fill</code> method will override all existing key/pair values of the model instance.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+user<span class="token punctuation">.</span>username <span class="token operator">=</span> <span class="token string">'virk'</span>
+user<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">22</span>
+
+user<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token number">23</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment">// remove existing values, only set age.</span>
+
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// returns { age: 23, username: null }</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>merge</code> method only modifies the specified attributes</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+user<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">{</span> username<span class="token punctuation">:</span> <span class="token string">'virk'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">22</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+user<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token number">23</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// returns { age: 23, username: 'virk' }</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_create"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_create">create</a></h4>
+<div class="paragraph">
+<p>Alternatively, you can also feed a bunch of data directly to the model instance, instead of setting attributes manually.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> userData <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">// save and get instance back</span>
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>userData<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_createmany"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_createmany"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_createmany">createMany</a></h4>
+<div class="paragraph">
+<p>Just like <code>create</code> you can persist multiple instances of a model using the createMany method.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tbody><tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>createMany</code> method makes <strong>n</strong> number of queries instead of doing a bulk insert, where <strong>n</strong> is the number of rows.
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> usersData <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">collect</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'username'</span> <span class="token string">'email'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">createMany</span><span class="token punctuation">(</span>usersData<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bulk_updates"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_bulk_updates"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_bulk_updates">Bulk updates</a></h3>
+<div class="paragraph">
+<p>The bulk updates can be done with the help of query builder. Lucid makes sure to format dates accordingly when doing bulk updates.</p>
+</div>
+<div class="paragraph">
+<p><strong>Bulk updates never execute any model hooks</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'virk'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> role<span class="token punctuation">:</span> <span class="token string">'admin'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deletes"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_deletes"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_deletes">Deletes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A single model instance can be deleted by calling the delete method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> id <span class="token punctuation">}</span> <span class="token operator">=</span> params
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After calling <code>delete</code> method, the model instance freezes for any updates, but you can still read data from it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// works fine</span>
+
+user<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// throws exception</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bulk_deletes"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_bulk_deletes"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_bulk_deletes">Bulk deletes</a></h3>
+<div class="paragraph">
+<p>Bulk deletes can be done with the help of query builder.</p>
+</div>
+<div class="paragraph">
+<p><strong>Bulk deletes never execute any model hooks.</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> User <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'App/Models/User'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'role'</span><span class="token punctuation">,</span> <span class="token string">'guest'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transactions"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_transactions"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_transactions">Transactions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Majority of Lucid methods has support for transactions. The first step is always to obtain the <code>trx</code> object using the Database provider.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> trx <span class="token operator">=</span> <span class="token keyword">await</span> Database<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">// pass the trx object and lucid will use it</span>
+<span class="token keyword">await</span> user<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>trx<span class="token punctuation">)</span>
+
+<span class="token comment">// once done commit the transaction</span>
+trx<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just like with <code>save</code>, you can pass the <code>trx</code> object to the <code>create</code> method as well.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> trx <span class="token operator">=</span> <span class="token keyword">await</span> Database<span class="token punctuation">.</span><span class="token function">beginTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span> username<span class="token punctuation">:</span> <span class="token string">'virk'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> trx<span class="token punctuation">)</span>
+
+<span class="token comment">// once done commit the transaction</span>
+trx<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">createMany</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> username<span class="token punctuation">:</span> <span class="token string">'virk'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> trx<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_boot_cycle"><a class="anchor" href="https://adonisjs.com/docs/4.0/lucid#_boot_cycle"></a><a class="link" href="https://adonisjs.com/docs/4.0/lucid#_boot_cycle">Boot cycle</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each model has a boot cycle where it gets booted, and that happens only once. So if you want to perform something that should occur only once, consider writing it inside the <code>boot</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight line-numbers language-js"><code class=" language-js" data-lang="js"><span class="token keyword">const</span> Model <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'Model'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token function">boot</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">/**
+      I will be called only once
+    */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> User<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  window.adonis = {
+    algoliaAppId: 'U06VX3EARE',
+    algoliaApiKey: '5f1220b9b0e8e68dea838d7b56faf31a',
+    version: '4.1',
+    currentVersion: '4.0'
+  }
+</script>
+<script type="text/javascript" src="./Lucid Models_files/adonis.js"></script>
+<footer class="footer">
+<div class="container">
+<div class="columns is-centered">
+<div class="column is-4 is-hidden-touch">
+<p> Designed by <a href="https://dribbble.com/planetabhi" target="_blank"> Abhimanyu Rana </a></p>
+</div>
+<div class="column is-4">
+<div class="logo">
+<a href="https://adonisjs.com/">
+<img src="./Lucid Models_files/badge.svg" alt="">
+</a>
+</div>
+</div>
+<div class="column is-4 is-hidden-touch">
+<p class="is-pulled-right">Developed by <a href="http://github.com/thetutlage" target="_blank"> Harminder Virk </a></p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-62429600-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script>
+  var HW_config = {
+    selector: "#notifications-handle",
+    account:  "gxYbA7"
+  }
+</script>
+<script async="" src="./Lucid Models_files/widget.js"></script>
+</section>
+
+
+<style id="HW_styles_cont">#HW_badge_cont {
+  visibility: hidden;
+  pointer-events: none;
+  display: block;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  position: relative;
+}
+
+#HW_badge_cont.HW_visible {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#HW_badge {
+  display: block;
+  border-radius: 20px;
+  background: #CD4B5B;
+  height: 16px;
+  width: 16px;
+  color: #fff;
+  text-align: center;
+  line-height: 16px;
+  font-size: 11px;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+#HW_badge.HW_softHidden {
+  background: #d4d4d4;
+  opacity: 1;
+  transform: scale(0.6);
+}
+
+#HW_badge.HW_hidden {
+  opacity: 0;
+  transform: scale(0);
+}
+
+#HW_badge.HW_visible {
+  opacity: 1;
+  transform: scale(1.0);
+}
+
+#HW_frame_cont {
+  pointer-events: none;
+  border-radius: 4px;
+  box-shadow: 0 0 1px rgba(99, 114, 130, 0.32), 0 8px 16px rgba(27, 39, 51, 0.08);
+  background: #fff;
+  border: none;
+  position: absolute;
+  top: -900em;
+  z-index: 999;
+  width: 340px;
+  height: 0;
+  opacity: 0;
+  will-change: height, margin-top, opacity;
+  margin-top: -10px;
+  transition: margin-top 0.15s ease-out, opacity 0.1s ease-out, height 0.3s ease-out;
+}
+
+#HW_frame_cont.HW_visible {
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 0px;
+}
+
+#HW_frame {
+  background: #fff;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+  z-index: 900;
+  transition: height 0.3s ease-out;
+}
+
+#HW_frame_cont.HW_embed {
+  position: static;
+  margin-top: 0;
+}</style><div id="HW_frame_cont" style="height: 237px;"><iframe id="HW_frame" src="./Lucid Models_files/gxYbA7.html" sandbox="allow-same-origin allow-scripts allow-top-navigation allow-popups allow-forms" tabindex="-1" aria-hidden="true" style="height: 237px;"></iframe></div><link rel="stylesheet" href="./Lucid Models_files/headway-animate.css"></body></html>

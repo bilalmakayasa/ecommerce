@@ -15,13 +15,29 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
-const bodyParser = require('body-parser')
+const axios = require('axios')
+
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+ 
 })
-Route.resource('Register','RegisterController')
-Route.resource('Login','LoginController')
-Route.resource('AdressList','AdressListController').middleware(['auth'])
-Route.resource('UserProfile','UserProfileController').middleware(['auth'])
-Route.resource('Product','ProductController')
+Route.resource('register', 'RegisterController')
+Route.resource('login', 'LoginController')
+Route.resource('adressList', 'AdressListController').middleware(['auth'])
+Route.resource('userProfile', 'UserProfileController').middleware(['auth'])
+Route.resource('product', 'ProductController')
+Route.resource('cart', 'CartController')
+Route.resource('voucher', 'VoucherController')
+Route.resource('shipping', 'ShippingController')
+Route.resource('payment', 'PaymentController')
+Route.resource('invoice', 'InvoiceController')
+Route.get('/logout', async ({ response, auth }) => {
+  try {
+    const User = await auth.logout()
+    console.log(User)
+    response.json({ message: "you have been logout" })
+  } catch (e) {
+    console.log(e)
+    response.json({ error: e })
+  }
+})

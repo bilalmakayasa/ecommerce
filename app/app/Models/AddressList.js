@@ -7,7 +7,7 @@ class AddressList extends Model {
     user (){
         return this.belongsTo('App/Models/User')
     }
-    user_profiles(){
+    user_profiles (){
         return this.hasOne('App/Models/UserProfile')
     }
 }

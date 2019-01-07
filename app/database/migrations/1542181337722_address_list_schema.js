@@ -10,7 +10,7 @@ class AddressListSchema extends Schema {
       table.integer('user_id').notNullable()
       table.string('province').notNullable()
       table.string('city').notNullable()
-      table.string('street').notNullable().unique()
+      table.string('street').notNullable()
       table.timestamps()
     })
   }

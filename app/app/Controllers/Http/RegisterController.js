@@ -2,7 +2,7 @@
 
 const Mail = use('Mail')
 const User = use('App/Models/User')
-const Hash = use('Hash')
+const Env = use('Env')
 const View = use('View')
 const validator = use('validator')
 
@@ -23,7 +23,8 @@ class RegisterController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({ request, response, view }) {
+   async index({ request, response, view }) {
+    
   }
 
   /**
@@ -51,7 +52,10 @@ class RegisterController {
       const { email, password } = await request.body
       const randomstring = require("randomstring");
       const random = randomstring.generate();
-      const link = 'http://127.0.0.1:3333/Login/';
+      // const link = 'https://ayamperawan.herokuapp.com/login/';
+      const link = 'http://192.168.100.21:3333/login/';
+
+      // const link = `${Env.get('APP_URL')}/login}`
       const message = link+random;
       const user = await User.create({
         email: email,
@@ -70,7 +74,7 @@ class RegisterController {
               // .from('<from-email>')
               .subject('welcome to ayamperawan '+ user.email)
           })
-          response.status(200).json({ email, password })
+          response.status(200).json({ message: "you have been registered, please complete your information in user profile section" })
         }else{
           response.json({error:"your password format is invalid"})
         }
@@ -93,6 +97,7 @@ class RegisterController {
    * @param {View} ctx.view
    */
   async show({ params, request, response, view }) {
+
   }
 
   /**
@@ -127,6 +132,9 @@ class RegisterController {
    * @param {Response} ctx.response
    */
   async destroy({ params, request, response }) {
+    const user = await User.query().where('id',params.id).firstOrFail()
+    user.delete()
+    response.json({message:'done'})
   }
 }
 
